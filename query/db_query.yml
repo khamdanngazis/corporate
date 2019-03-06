@@ -1,0 +1,24 @@
+SQLCommand:
+
+#GetCategoryListLevel1
+ GetCategoryListLevel1: >
+     SELECT Lv1Key , Lv1Value ,ifnull(Lv2Key,'')Lv2Key FROM category GROUP BY Lv1Key
+
+#GetCategoryListLevel2
+ GetCategoryListLevel2: >
+     SELECT Lv2Key , Lv2Value , ifnull(Lv3Key,'')Lv3Key FROM category where Lv1Key = ? GROUP BY Lv2Key
+
+#GetCategoryListLevel3
+ GetCategoryListLevel3: >
+     SELECT Lv3Key , Lv3Value , ifnull(Lv4Key,'')Lv4Key FROM category where Lv1Key = ? and Lv2Key = ? GROUP BY Lv3Key
+
+#GetCategoryListLevel4
+ GetCategoryListLevel4: >
+     SELECT Lv4Key , Lv4Value ,('')Child FROM category where Lv1Key = ? and Lv2Key = ? and Lv3Key = ?
+ ?
+
+ #GetRequiredInfo
+ GetRequiredInfo: >
+     SELECT b.Key , b.Value , b.Type FROM sf_corporate_mtr_tt_category_required_info a
+         LEFT JOIN sf_corporate_mtr_tt_required_info b on b.Key = a.RequiredInfoKey
+             where a.StandardCode = ?
