@@ -1,0 +1,25 @@
+#port where service shall LISTEN for connection
+listenPort: :9005
+
+#database configuration
+query: ./query/db_query.yml
+dbType: mysql
+#dbUrl: root:@tcp(127.0.0.1:3306)/db_sf_corporate
+dbUrl: sql12282061:Rj6MPFAEV5@tcp(sql12.freemysqlhosting.net)/sql12282061
+#dbUrl: budianto:SmartFren2018@tcp(10.1.35.40:3306)/db_sf_queue
+#dbUrl: queuing-backend:SmartFren2018$$@tcp(10.1.35.40:3306)/db_sf_queue_uat
+
+zsmartPath: http://127.0.0.1:9400
+#zsmartPath: http://10.0.0.188:9400
+zsmartUserName: admin
+zsmartPassword: 0192023A7BBD73250516F069DF18B500
+zsmartztePrivilegeId : 71085
+zsmartRequestID: 1122334455
+
+#token Authorization
+tokenAuth: Sm@rtfren900
+
+#logging settings
+log:
+  filename:
+  level: DEBUG
